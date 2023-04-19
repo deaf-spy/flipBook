@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,400,600|Tulpen+One&display=swap');
+
+:root {
+  /* colors */
+  --body-bg: #FAFAFA;
+  --page-bg: #F5F5F5;
+  --dark-text: #2A2935;
+  
+  /* spacing */
+  /* this is what defines the global scale */
+  --baseline: 12px;
+  
+  /* fonts */
+  --book-title: 'Tulpen One', sans-serif;
+  --title: 'Cormorant Garamond', serif;
+  --body: 'Cormorant Garamond', serif;
+  --base-size: var(--baseline) * 1.2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--body-bg);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cover {
+    width: calc(var(--baseline) * 60);
+    height: calc(var(--baseline) * 42.6);
+    box-shadow: 0 0 100px rgba(0, 0, 0, .3);
+}
+
+
+.book {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    perspective: 1200px;
+}  
+
+.page {
+    position: absolute;
+    transition: all 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.leftPage {
+    right: 0px;
+    width: 50%;
+    height: 100%;
+}
+
+.rightPage {
+    right: 0px;
+    width: 50%;
+    height: 100%;
+}
+
+.left {
+    transform: rotateY(-180deg);
+    transform-origin: left;
+    transition: all 0.9s cubic-bezier(0.645, 0.045, 0.355, 1) 0.9s;
+
+
+}
+
+.middle {
+    transform-origin: left;
+    transform: rotateY(-90deg);
+    transition: all 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+}
+
+
+
+.right {
+    transform: rotateY(0deg);
+    transform-origin: left;
+    transition: all 0.9s cubic-bezier(0.645, 0.045, 0.355, 1) 0.9s;
+
+}
+
+.focus {
+    z-index: 10;
+}
+
+.focus1 {
+    z-index: 10;
+    /* transition: all 0s linear 2s; */
+}
+
+
+
+img {
+    height: 100%;
+    max-width: 100%;
+    width: auto;
+
+    position: absolute;
+}
+
+.leftPage img {
+    transform: scaleX(-1);
+}
